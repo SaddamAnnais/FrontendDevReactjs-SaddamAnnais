@@ -16,8 +16,10 @@ import {
   faStar as farStar,
 } from "@fortawesome/free-regular-svg-icons";
 import PrettyRating from "pretty-rating-react";
+import { useRouter } from "next/router";
 
 const RestaurantItem = ({ detail }) => {
+  const router = useRouter();
   return (
     <Card variant="unstyled" w="100%" mb="2rem">
       <CardBody>
@@ -51,7 +53,7 @@ const RestaurantItem = ({ detail }) => {
           </HStack>
           <Flex direction="row" w="100%">
             <Text color="gray.500" fontSize="md" textTransform="uppercase">
-              {detail.category} &#x2022; {"$".repeat(detail.priceLvl + 1)}
+              {detail.category[0].name} &#x2022; {"$".repeat(detail.priceLvl + 1)}
             </Text>
             <Spacer />
             <Box
@@ -73,6 +75,10 @@ const RestaurantItem = ({ detail }) => {
           rounded={false}
           _hover={{ bgColor: "#072647" }}
           h="2.5rem"
+          onClick={() => {
+            // console.log(JSON.stringify(detail))
+            router.push({ pathname: "/" + detail.id, query: { detail: JSON.stringify(detail) } })
+          }}
         >
           LEARN MORE
         </Button>

@@ -26,7 +26,9 @@ const getRestaurantData = async () => {
         ...item,
         isOpen: Math.floor(Math.random() * 10) % 2 === 1,
         priceLvl: Math.floor(Math.random() * 10) % 4,
-        category: response.data.restaurant.categories[0].name,
+        address: response.data.restaurant.address,
+        menus: response.data.restaurant.menus,
+        category: response.data.restaurant.categories,
         custReview: response.data.restaurant.customerReviews,
       };
       restaurantData.push(newElmt);

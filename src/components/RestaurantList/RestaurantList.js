@@ -7,7 +7,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import RestaurantItem from "./RestaurantItem";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import getRestaurantData from "@/pages/api/restaurant";
 
 const RestaurantList = () => {
@@ -51,7 +51,6 @@ const RestaurantList = () => {
         gap={8}
         w="100%"
         h="100%"
-        // justifyContent="center"
       >
         {data.slice(0, page * 8).map((restaurant) => (
           <GridItem key={restaurant.id}>
