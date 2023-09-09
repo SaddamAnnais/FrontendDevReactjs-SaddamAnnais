@@ -1,38 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Restaurant Information App
 
-## Getting Started
+This is a simple web application built using Next.js and Chakra UI that provides information about various restaurants, including their names, ratings, reviews, and more. The app is deployed on Vercel, allowing users to access it easily.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- View a list of restaurants with their information.
+- Get detailed information about each restaurant, including its name, rating, reviews, and more.
+- Search for specific restaurants by criteria.
+- Responsive design for seamless usage on different devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **Next.js**: Next.js is a popular React framework that enables server-side rendering, static site generation, and other features for building modern web applications.
+- **Chakra UI**: Chakra UI is a flexible and customizable UI component library that simplifies the process of building beautiful user interfaces.
+- **Vercel**: Vercel is a cloud platform for deploying and hosting web applications. 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To run the application locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository: 
+`git clone https://github.com/SaddamAnnais/FrontendDevReactjs-SaddamAnnais.git`
+2. Navigate to the project directory
+3. Install the dependencies: `npm install --force`.
+4. Start the development server: `npm run dev`.
+5. Open your browser and visit `http://localhost:3000` to access the application.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The application is deployed on Vercel and can be accessed using the following URL: [https://frontenddevreactjs-saddamannais.vercel.app/](https://frontenddevreactjs-saddamannais.vercel.app/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Credits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This application was created by Saddam Annais (me). If you have any questions or suggestions, feel free to contact me at saddamannaiss@gmail.com.
