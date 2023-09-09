@@ -9,13 +9,20 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-const Filter = () => {
+const Filter = (props) => {
   const [isOpenChecked, setIsOpenChecked] = useState(false);
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [isResetable, setIsResetable] = useState(false);
 
   useEffect(() => {
+    const param = {
+      isOpen: isOpenChecked ? true : undefined,
+      priceLvl: price === "" ? undefined : parseInt(price),
+      category: category === "" ? undefined : category,
+    };
+    console.log(param);
+    props.filterParam(param);
     if (
       (isOpenChecked === true || price !== "" || category !== "") &&
       isResetable !== true
@@ -32,10 +39,10 @@ const Filter = () => {
 
   const clearAllHandler = () => {
     setIsOpenChecked(false);
-    setPrice("")
-    setCategory("")
-    setIsResetable(false)
-  }
+    setPrice("");
+    setCategory("");
+    setIsResetable(false);
+  };
 
   return (
     <Flex
@@ -81,9 +88,10 @@ const Filter = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value={0}>$</option>
+            <option value={1}>$$</option>
+            <option value={2}>$$$</option>
+            <option value={3}>$$$$</option>
           </Select>
         </HStack>
         <HStack
@@ -100,9 +108,13 @@ const Filter = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="Italia">Italia</option>
+            <option value="Spanyol">Spanyol</option>
+            <option value="Jawa">Jawa</option>
+            <option value="Bali">Bali</option>
+            <option value="Modern">Modern</option>
+            <option value="Sunda">Sunda</option>
+            <option value="Sop">Sop</option>
           </Select>
         </HStack>
       </Flex>

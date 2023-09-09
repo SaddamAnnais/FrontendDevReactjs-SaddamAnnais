@@ -6,6 +6,7 @@ import RestaurantList from "@/components/RestaurantList/RestaurantList";
 import getRestaurantData from "./api/restaurant";
 import ErrorModal from "@/components/ErrorModal";
 import { useEffect, useState } from "react";
+import filterRestaurant from "@/utils/filter";
 
 export default function Home() {
   const [modalStatus, setModalStatus] = useState({
@@ -13,6 +14,18 @@ export default function Home() {
     isLoading: false,
   });
   const [data, setData] = useState([]);
+  const [filterParam, setFilterParam] = useState({
+    initArray: data,
+    isOpen: undefined,
+    category: undefined,
+    priceLvl: undefined,
+  });
+
+  useEffect(() => {
+    setFilterParam((prevData) => {
+      return { ...prevData, initArray: data };
+    });
+  }, [data]);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -28,7 +41,7 @@ export default function Home() {
         setModalStatus((prevStatus) => {
           return { ...prevStatus, isError: error };
         });
-        console.log(!error)
+        console.log(!error);
         console.log("Error fetching restaurants:", error);
       }
     };
@@ -53,18 +66,24 @@ export default function Home() {
           color={"gray.600"}
         >
           <Header />
-          <Filter />
+          <Filter
+            filterParam={(param) =>
+              setFilterParam({ initArray: data, ...param })
+            }
+          />
           {modalStatus.isLoading && (
             <Spinner
-            m="5rem"
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="gray.500"
-            size="xl"
+              m="5rem"
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="gray.500"
+              size="xl"
             />
           )}
-          {!modalStatus.isLoading && !modalStatus.isError && <RestaurantList data={data} />}
+          {!modalStatus.isLoading && !modalStatus.isError && (
+            <RestaurantList data={filterRestaurant(filterParam)} />
+          )}
         </VStack>
       </main>
     </>

@@ -1,17 +1,11 @@
 import axios from "axios";
 
 const getRestaurantList = async () => {
-  // try {
   const response = await axios.get("https://restaurant-api.dicoding.dev/list");
   return response.data.restaurants;
-  // } catch (error) {
-  //   console.log("Error fetching restaurant data:", error);
-  //   return null;
-  // }
 };
 
 const getRestaurantData = async () => {
-  // try {
     const restaurantList = await getRestaurantList();
     const restaurantData = [];
     if (restaurantList) {
@@ -33,10 +27,6 @@ const getRestaurantData = async () => {
       }
       return restaurantData.sort(() => Math.random() - 0.5);
     }
-  // } catch (error) {
-  //   console.log("Error fetching restaurant data:", error);
-  //   return null;
-  // }
 };
 
 export default getRestaurantData;

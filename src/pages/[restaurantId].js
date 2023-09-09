@@ -88,7 +88,6 @@ const RestaurantDetail = () => {
               </Heading>
             </Flex>
           </Box>
-
           <Flex w="100%">
             <Text color="#082c54" fontSize="md" textTransform="uppercase">
               {detailData?.category[0].name}
@@ -154,11 +153,11 @@ const RestaurantDetail = () => {
             >
               <Text
                 fontWeight="bold"
-                borderBottom="1px"
+                borderY="1px"
                 borderColor="gray.500"
-                w="70%"
+                w="90%"
                 align="center"
-                h="2.5rem"
+                py="0.7rem"
                 mb="0.5rem"
               >
                 Food Menu
@@ -175,11 +174,11 @@ const RestaurantDetail = () => {
             >
               <Text
                 fontWeight="bold"
-                borderBottom="1px"
+                borderY="1px"
                 borderColor="gray.500"
-                w="70%"
+                w="90%"
                 align="center"
-                h="2.5rem"
+                py="0.7rem"
                 mb="0.5rem"
               >
                 Drink Menu
@@ -189,55 +188,70 @@ const RestaurantDetail = () => {
               })}
             </GridItem>
           </Grid>
-          <Flex w="100%" direction={["column", "column", "row"]} mt="1rem">
-            <Text fontWeight="bold" h="2.5rem" mb="0.5rem" minW="8rem">
-              Review :
-            </Text>
-            <Spacer />
-            <Stack
-              overflow="auto"
-              direction={["column", "column", "row"]}
-              alignItems="center"
-              mb="3rem"
-            >
-              {detailData?.custReview.map((review, idx) => {
-                return (
-                  <Card
-                    key={idx}
-                    w={["15rem", "20rem", "20rem", "25rem"]}
-                    h="15rem"
-                    minW={["15rem", "20rem", "20rem", "25rem"]}
-                    minH="15rem"
-                    variant="unstyled"
-                    border="1px solid"
-                    borderColor="gray.500"
-                    rounded={false}
-                    p="1rem"
+          {/* <Flex w="100%" direction={["column", "column", "row"]} mt="1rem"> */}
+          <Text
+            fontWeight="bold"
+            fontSize="3xl"
+            mt="2rem"
+            mb="0.5rem"
+            p="0.5rem"
+            borderY="1px"
+            borderColor="blackAlpha.500"
+            w="90%"
+            textAlign="center"
+          >
+            Review
+          </Text>
+          <Spacer />
+          <Flex
+            overflow="auto"
+            maxW="90%"
+            direction={["column", "column", "row"]}
+            // justifyContent="center"
+            alignItems="center"
+            mb="3rem"
+            
+          >
+            {detailData?.custReview.map((review, idx) => {
+              return (
+                <Card
+                  key={idx}
+                  w={["15rem", "20rem", "20rem", "25rem"]}
+                  h="15rem"
+                  minW={["15rem", "18rem", "18rem", "23rem"]}
+                  minH="15rem"
+                  variant="unstyled"
+                  border="1px solid"
+                  borderColor="gray.500"
+                  rounded={false}
+                  p="1rem"
+                  m="0.5rem"
+                  // mx="1rem"
+                >
+                  <Text fontWeight="bold">{review.name}</Text>
+                  <Text fontSize="md" mb="1rem">
+                    {review.date}
+                  </Text>
+                  <Text
+                    fontSize="lg"
+                    webkit
+                    style={{
+                      display: "-webkit-box",
+                      "-webkit-box-orient": "vertical",
+                      "-webkit-line-clamp": "5",
+                      overflow: "hidden",
+                      "text-overflow": "ellipsis",
+                    }}
+                    // ;
                   >
-                    <Text fontWeight="bold">{review.name}</Text>
-                    <Text fontSize="md" mb="1rem">
-                      {review.date}
-                    </Text>
-                    <Text
-                      fontSize="lg"
-                      webkit
-                      style={{
-                        display: "-webkit-box",
-                        "-webkit-box-orient": "vertical",
-                        "-webkit-line-clamp": "5",
-                        overflow: "hidden",
-                        "text-overflow": "ellipsis",
-                      }}
-                      // ;
-                    >
-                      Comment: <br />
-                      {review.review}
-                    </Text>
-                  </Card>
-                );
-              })}
-            </Stack>
+                    Comment: <br />
+                    {review.review}
+                  </Text>
+                </Card>
+              );
+            })}
           </Flex>
+          {/* </Flex> */}
         </VStack>
       </main>
     </>
