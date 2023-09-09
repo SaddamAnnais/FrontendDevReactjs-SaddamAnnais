@@ -10,27 +10,12 @@ import RestaurantItem from "./RestaurantItem";
 import { useEffect, useState, useTransition } from "react";
 import getRestaurantData from "@/pages/api/restaurant";
 
-const RestaurantList = () => {
-  const [data, setData] = useState([]);
+const RestaurantList = ({data}) => {
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    const fetchRestaurants = async () => {
-      try {
-        const newData = await getRestaurantData();
-        console.log(newData);
-        setData(newData);
-      } catch (error) {
-        console.error("Error fetching restaurants:", error);
-      }
-    };
-
-    fetchRestaurants();
-  }, []);
-
   const loadMoreHandler = () => {
-    console.log(data.length <= page * 8)
-    if (data.length > page * 8) setPage((prevPage) => prevPage + 1);
+    // console.log(data?.length <= page * 8)
+    if (data?.length > page * 8) setPage((prevPage) => prevPage + 1);
   };
 
   return (
@@ -52,7 +37,7 @@ const RestaurantList = () => {
         w="100%"
         h="100%"
       >
-        {data.slice(0, page * 8).map((restaurant) => (
+        {data?.slice(0, page * 8).map((restaurant) => (
           <GridItem key={restaurant.id}>
             <RestaurantItem detail={restaurant} />
           </GridItem>
@@ -68,7 +53,7 @@ const RestaurantList = () => {
             rounded={false}
             _hover={{ bgColor: "gray.200" }}
             onClick={loadMoreHandler}
-            isDisabled={data.length <= page * 8}
+            isDisabled={data?.length <= page * 8}
           >
             LOAD MORE
           </Button>
