@@ -13,7 +13,9 @@ This is a simple web application built using Next.js and Chakra UI that provides
 
 - **Next.js**: Next.js is a popular React framework that enables server-side rendering, static site generation, and other features for building modern web applications.
 - **Chakra UI**: Chakra UI is a flexible and customizable UI component library that simplifies the process of building beautiful user interfaces.
-- **Vercel**: Vercel is a cloud platform for deploying and hosting web applications. 
+- **Vercel**: Vercel is a cloud platform for deploying and hosting web applications.
+- **React.js v18.2.0** : React.js is a popular JavaScript library for building user interfaces. It provides a component-based architecture and efficient rendering, making it easy to create interactive and reusable UI components.
+- **node.js v18.12.1** : Node.js is a JavaScript runtime environment that allows developers to execute JavaScript code outside of a web browser.
 
 ## Installation
 
