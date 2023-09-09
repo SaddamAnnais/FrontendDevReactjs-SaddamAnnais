@@ -30,7 +30,6 @@ const RestaurantDetail = () => {
   const [detailData, setDetailData] = useState(undefined);
 
   useEffect(() => {
-    console.log(detailData);
     if (router.query.detail !== undefined)
       setDetailData(JSON.parse(router.query.detail));
   }, [router.query.detail]);
@@ -210,7 +209,6 @@ const RestaurantDetail = () => {
             // justifyContent="center"
             alignItems="center"
             mb="3rem"
-            
           >
             {detailData?.custReview.map((review, idx) => {
               return (
@@ -234,13 +232,12 @@ const RestaurantDetail = () => {
                   </Text>
                   <Text
                     fontSize="lg"
-                    webkit
                     style={{
                       display: "-webkit-box",
-                      "-webkit-box-orient": "vertical",
-                      "-webkit-line-clamp": "5",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: "5",
                       overflow: "hidden",
-                      "text-overflow": "ellipsis",
+                      textOverflow: "ellipsis",
                     }}
                     // ;
                   >

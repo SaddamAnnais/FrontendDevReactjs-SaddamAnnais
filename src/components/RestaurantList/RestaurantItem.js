@@ -76,7 +76,6 @@ const RestaurantItem = ({ detail }) => {
           _hover={{ bgColor: "#072647" }}
           h="2.5rem"
           onClick={() => {
-            // console.log(JSON.stringify(detail))
             router.push({ pathname: "/" + detail.id, query: { detail: JSON.stringify(detail) } })
           }}
         >

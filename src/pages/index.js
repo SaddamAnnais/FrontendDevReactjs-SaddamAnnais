@@ -31,7 +31,6 @@ export default function Home() {
     const fetchRestaurants = async () => {
       try {
         const newData = await getRestaurantData();
-        console.log(newData);
         setData(newData);
 
         setModalStatus((prevStatus) => {
@@ -41,8 +40,7 @@ export default function Home() {
         setModalStatus((prevStatus) => {
           return { ...prevStatus, isError: error };
         });
-        console.log(!error);
-        console.log("Error fetching restaurants:", error);
+        console.error("Error fetching restaurants:", error);
       }
     };
 

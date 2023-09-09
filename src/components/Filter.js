@@ -21,7 +21,6 @@ const Filter = (props) => {
       priceLvl: price === "" ? undefined : parseInt(price),
       category: category === "" ? undefined : category,
     };
-    console.log(param);
     props.filterParam(param);
     if (
       (isOpenChecked === true || price !== "" || category !== "") &&

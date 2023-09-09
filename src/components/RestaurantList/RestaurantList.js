@@ -14,7 +14,6 @@ const RestaurantList = ({data}) => {
   const [page, setPage] = useState(1);
 
   const loadMoreHandler = () => {
-    // console.log(data?.length <= page * 8)
     if (data?.length > page * 8) setPage((prevPage) => prevPage + 1);
   };
 
